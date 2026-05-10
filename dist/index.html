@@ -1,0 +1,845 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<title>ZOE XBT</title>
+	<meta charset="UTF-8" />
+	<meta name="format-detection" content="telephone=no" />
+	<style>
+		.wrapper {
+			position: relative;
+			width: 100vw;
+			height: 100vh;
+			background-image: url('img/preloader/bg.jpg');
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+
+		.preloader {
+			position: absolute;
+			z-index: 20;
+			top: 0;
+			left: 0;
+			width: 100vw;
+			height: 100vh;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			will-change: transform;
+			transition: transform 1s ease 2s;
+		}
+
+		.loaded .preloader {
+			transform: translateY(100%);
+		}
+
+		.preloader__body {
+			display: flex;
+			width: 60vw;
+			align-items: flex-end;
+			transform: translateY(-10%);
+		}
+
+		.preloader__zoe {
+			flex: 0 0 40%;
+		}
+
+		.preloader__zoe img {
+			width: 100%;
+		}
+
+		.preloader__xbt {
+			flex: 0 0 40%;
+		}
+
+		.preloader__xbt img {
+			width: 100%;
+		}
+
+		.preloader__cat {
+			position: relative;
+			flex: 0 0 24%;
+			aspect-ratio: 400 / 450;
+			margin: 0 -4% 0% -2%;
+		}
+
+		.preloader__cat img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+
+		@keyframes cat-preloader {
+			0% {
+				opacity: 1;
+			}
+
+			17% {
+				opacity: 1;
+			}
+
+			18% {
+				opacity: 0;
+			}
+
+			100% {
+				opacity: 0;
+			}
+		}
+
+		.preloader__cat img:nth-child(1) {
+			opacity: 0;
+			animation: cat-preloader 1.2s linear infinite;
+		}
+
+		.preloader__cat img:nth-child(2) {
+			opacity: 0;
+			animation: cat-preloader 1.2s linear 0.2s infinite;
+		}
+
+		.preloader__cat img:nth-child(3) {
+			opacity: 0;
+			animation: cat-preloader 1.2s linear 0.4s infinite;
+		}
+
+		.preloader__cat img:nth-child(4) {
+			opacity: 0;
+			animation: cat-preloader 1.2s linear 0.6s infinite;
+		}
+
+		.preloader__cat img:nth-child(5) {
+			opacity: 0;
+			animation: cat-preloader 1.2s linear 0.8s infinite;
+		}
+
+		.preloader__cat img:nth-child(6) {
+			opacity: 0;
+			animation: cat-preloader 1.2s linear 1s infinite;
+		}
+
+		.music {
+			position: absolute;
+			z-index: 19;
+			top: 0;
+			left: 0;
+			width: 100vw;
+			height: 100vh;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			transform: translateY(-100%);
+			transition: transform 1s ease 2s;
+		}
+
+		.loaded .music {
+			transform: translateY(0);
+		}
+
+		.main-page-wrapper {
+			opacity: 0;
+			visibility: hidden;
+		}
+	</style>
+	<link rel="stylesheet" href="css/style.min.css?_v=20250118231258" />
+	<link rel="shortcut icon" href="favicon.ico" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+	<div class="wrapper">
+		<div class="filter">
+			<img src="img/filter.png" alt="Filter" />
+		</div>
+		<div class="preloader">
+			<div class="preloader__body">
+				<div class="preloader__zoe">
+					<img src="img/preloader/ZOE.png" alt="ZOE" />
+				</div>
+				<div class="preloader__cat">
+					<img src="img/preloader/01.png" alt="Cat" />
+					<img src="img/preloader/02.png" alt="Cat" />
+					<img src="img/preloader/03.png" alt="Cat" />
+					<img src="img/preloader/04.png" alt="Cat" />
+					<img src="img/preloader/05.png" alt="Cat" />
+					<img src="img/preloader/06.png" alt="Cat" />
+				</div>
+				<div class="preloader__xbt">
+					<img src="img/preloader/XBT.png" alt="XBT" />
+				</div>
+			</div>
+		</div>
+		<div class="music">
+			<div class="music__bg"></div>
+			<div class="music__body">
+				<div class="music__icon">
+					<img src="img/music/icon.svg" alt="MUSIC" />
+				</div>
+				<div class="music__text">Turn on music for better Experience</div>
+				<div class="music__buttons">
+					<button type="button" class="music__button no-music-button">
+						<img src="img/music/no.svg" alt="NO" />
+					</button>
+					<button type="button" class="music__button yes-music-button">
+						<img src="img/music/yes.svg" alt="NO" />
+					</button>
+				</div>
+			</div>
+			<audio loop id="musicTrack" src="img/music/sounds/Mingle-Song-Squid-Game-2-Episode-6.mp3"></audio>
+		</div>
+		<div class="about-flowers-box"></div>
+		<div class="main-page-wrapper">
+			<header class="header">
+				<div class="header__container">
+					<div class="header__left">
+						<div class="header__text">-Can you buy me some flowers?</div>
+					</div>
+					<div class="header__middle">
+						<div class="header__social">
+							<a href="mailto:zoexbt@gmail.com" target="_blank" class="header__social-item">
+								<svg xmlns="http://www.w3.org/2000/svg" width="27" height="26" viewBox="0 0 27 26" fill="none">
+									<path d="M2.29297 7.03437L2.86366 7.03437L2.86366 5.89801L24.1364 5.89801L24.1364 7.03437L24.7068 7.03437L24.7068 21.8071L24.1364 21.8071L24.1364 22.4057L2.86366 22.4057L2.86366 21.8071L2.29297 21.8071L2.29297 7.03437ZM4.08607 20.5532L22.9137 20.5532L22.9137 11.0704L21.7728 11.0704L21.7728 12.4367L19.4091 12.4367L19.4091 13.6566L17.0861 13.6566L17.0861 14.9889L14.6818 14.9889L14.6818 16.1253L12.3182 16.1253L12.3182 14.9889L9.95457 14.9889L9.95457 13.6566L7.59093 13.6566L7.59093 12.4422L5.2273 12.4422L5.2273 11.0704L4.08607 11.0704L4.08607 20.5532ZM22.9546 7.38727L4.08607 7.38727L4.04548 9.3071L6.40912 9.3071L6.40912 10.8355L8.77275 10.8355L8.77275 12.0512L11.1364 12.0512L11.1364 13.2242L15.8637 13.2242L15.8637 11.9325L18.2273 11.9325L18.2273 10.4435L20.5909 10.4435L20.5909 9.3071L22.9546 9.3071L22.9546 7.38727Z" fill="white" />
+								</svg>
+								<span>zoexbt@gmail.com</span>
+							</a>
+							<a href="https://x.com/zoexbt" target="_blank" class="header__social-item">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="23" viewBox="0 0 24 23" fill="none">
+									<g clip-path="url(#clip0_293_17941)">
+										<path d="M0.5 0.725586H8.21056V1.83422H9.30302L9.34073 1.87121V2.94285H10.4458V5.13545H11.5759V6.24408H12.681V7.32805H14.9036L14.9413 7.29106V6.24408H16.0086L16.0463 6.20709V5.13545H17.1765V4.02682H18.2815V2.94285H19.374L19.4117 2.90586V1.83422H20.5419V0.725586H23.7566V1.83422H22.7771V2.90586L22.7394 2.94285H21.6469V4.02682H20.5419V5.09846L20.5042 5.13545H19.4117V6.20709L19.374 6.24408H18.2815V7.32805H17.1765V8.39969L17.1388 8.43668H16.0463V9.52065H14.9413V10.6293H16.0463V12.8219H17.1765V13.9305H18.2815V16.1231H19.4117V17.1948L19.4494 17.2318H20.5419V19.4244H21.6469V20.5083H22.7771V21.617H23.7566V22.7256H16.0461V21.617H14.9411V20.5453L14.9033 20.5083H13.8109V18.3157H12.6807V17.2318H11.5757V16.1231H9.34048V17.1948L9.30277 17.2318H8.21031V18.3157H7.08014V19.4244H5.97511V20.5083H4.88265L4.84494 20.5453V21.617H3.71477V22.7256H0.5V21.617H1.47957V20.5453L1.51728 20.5083H2.60974V19.4244H3.71477V18.3527L3.75248 18.3157H4.84494V17.2318H5.93739L5.97511 17.1948V16.1231H7.08014V15.0515L7.11785 15.0145H8.21031V13.9305H9.31534V12.8219H8.21031V10.6293H7.08014V9.52065H5.97511V7.32805H4.84494V6.24408H3.75248L3.71477 6.20709V4.02682H2.60974V2.94285H1.47957V1.83422H0.5V0.725586ZM8.21056 2.94285H4.84494V5.13545H5.97511V6.21942C5.99975 6.21153 6.02967 6.24408 6.03797 6.24408H7.08039V8.39969L7.1181 8.43668H8.21056V9.52065H9.30302L9.34073 9.55765V11.7133H10.408L10.4458 11.7502V12.8219H11.5759V13.9305H12.681V16.1231H13.8111V17.2318H14.9413V18.3157H16.0463V20.5083H19.412V18.3157H18.2818V17.2318H17.1768V15.0515L17.139 15.0145H16.0466V13.9305H14.9416V11.7749L14.9038 11.7379H13.8491L13.8114 11.7009V10.6293H12.6812V9.52065H11.5762V7.32805H10.446V6.24408H9.35355L9.31584 6.20709V4.02682H8.21081V2.94285H8.21056Z" fill="white" />
+									</g>
+									<defs>
+										<clipPath id="clip0_293_17941">
+											<rect width="23.2571" height="22" fill="white" transform="translate(0.5 0.725586)" />
+										</clipPath>
+									</defs>
+								</svg>
+								<span>@zoexbt</span>
+							</a>
+							<a href="https://t.me/zoexbt" target="_blank" class="header__social-item">
+								<svg xmlns="http://www.w3.org/2000/svg" width="25" height="21" viewBox="0 0 25 21" fill="none">
+									<g clip-path="url(#clip0_293_17938)">
+										<path d="M17.5247 6.25393C16.7776 6.25637 16.028 6.2523 15.2809 6.25393V7.39225H14.1792V8.48986H11.9353V9.58747H10.8336V10.6647L10.7723 10.7258H8.58973V11.8234H7.48802V12.921H5.24415V11.8234H1.89899V10.7258H0.81811L0.756836 10.6647V9.64854L0.81811 9.58747H1.8994V8.48986H5.24497V7.39225H7.42756L7.48883 7.33118V6.25393H10.8344V5.15632H14.18V4.05872H16.3626L16.4238 3.99765V2.9204H19.7694V1.82279H21.9724V0.725586H23.1146V1.82319H24.2163V4.05912H23.1146V9.58747H22.0333L21.972 9.64854V15.1565H20.8703V19.628H19.7686V20.7256H17.5247V19.628H16.423V18.5507L16.3618 18.4897H14.1792V17.392H11.9353V18.4897H10.8336V19.5669L10.7723 19.628H9.69103V14.0589H10.8332V12.9613H11.9349V11.823H13.0366V10.7254H14.1788V9.58706H15.2805V8.48945H16.4226V7.39185H17.5243C17.5256 7.01322 17.5227 6.63256 17.5243 6.25352C17.8908 6.2523 18.2592 6.25434 18.626 6.25352V5.15592H17.5243C17.5231 5.52111 17.526 5.88833 17.5243 6.25352L17.5247 6.25393Z" fill="white" />
+									</g>
+									<defs>
+										<clipPath id="clip0_293_17938">
+											<rect width="23.4586" height="20" fill="white" transform="translate(0.756836 0.725586)" />
+										</clipPath>
+									</defs>
+								</svg>
+								<span>@zoexbt</span>
+							</a>
+						</div>
+					</div>
+					<div class="header__right">
+						<div class="header__name-of-song">Mingle-Song-Squid-Game-2</div>
+						<button class="header__music-toggler music-toggler">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+								<path d="M11 2H9V4H7V6H5V8H1V16H5V18H7V20H9V22H11V2ZM7 18V16H5V14H3V10H5V8H7V6H9V18H7ZM13 10H15V14H13V10ZM21 4H19V2H13V4H19V6H21V18H19V20H13V22H19V20H21V18H23V6H21V4ZM19 8H17V6H13V8H17V16H13V18H17V16H19V8Z" fill="white" />
+							</svg>
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+								<path d="M13 2.19714H11V4.19714H9V6.19714H7V8.19714H3V16.1971H7V18.1971H9V20.1971H11V22.1971H13V2.19714ZM9 18.1971V16.1971H7V14.1971H5V10.1971H7V8.19714H9V6.19714H11V18.1971H9ZM19 11.4201H17V9.42014H15V11.4201H17V13.4201H15V15.4201H17V13.4201H19V15.4201H21V13.4201H19V11.4201ZM19 11.4201H21V9.42014H19V11.4201Z" fill="white" />
+							</svg>
+						</button>
+					</div>
+				</div>
+				<div class="header__mobile-container">
+					<div class="header__mobile-left">
+						<a href="mailto:zoexbt@gmail.com" target="_blank" class="header__mobile-get">
+							<img src="img/header-mobile/get.svg" alt="Get in touch" /></a>
+						<button class="header__mobile-music-toggler music-toggler">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+								<path d="M11 2H9V4H7V6H5V8H1V16H5V18H7V20H9V22H11V2ZM7 18V16H5V14H3V10H5V8H7V6H9V18H7ZM13 10H15V14H13V10ZM21 4H19V2H13V4H19V6H21V18H19V20H13V22H19V20H21V18H23V6H21V4ZM19 8H17V6H13V8H17V16H13V18H17V16H19V8Z" fill="white" />
+							</svg>
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+								<path d="M13 2.19714H11V4.19714H9V6.19714H7V8.19714H3V16.1971H7V18.1971H9V20.1971H11V22.1971H13V2.19714ZM9 18.1971V16.1971H7V14.1971H5V10.1971H7V8.19714H9V6.19714H11V18.1971H9ZM19 11.4201H17V9.42014H15V11.4201H17V13.4201H15V15.4201H17V13.4201H19V15.4201H21V13.4201H19V11.4201ZM19 11.4201H21V9.42014H19V11.4201Z" fill="white" />
+							</svg>
+						</button>
+					</div>
+					<div class="header__menu menu">
+						<button type="button" class="menu__icon icon-menu">
+							<img src="img/header-mobile/menu.svg" alt="menu" />
+							<img src="img/header-mobile/menu-open.svg" alt="menu" />
+						</button>
+						<nav class="menu__body">
+							<div class="menu__image">
+								<video muted autoplay loop playsinline webkit-playsinline src="img/header-mobile/menu.mp4"></video>
+							</div>
+							<ul class="menu__list">
+								<li class="menu__item">
+									<a href="#" data-popup="#about" class="menu__link start-flowers">
+										<img src="img/header-mobile/menu-item-dec.svg" alt="Decor" />
+										<span>ABOUT</span></a>
+								</li>
+							</ul>
+							<div class="menu__social">
+								<a href="mailto:zoexbt@gmail.com" target="_blank" class="menu__social-item">
+									<img src="img/header-mobile/mail.svg" alt="Mail" />
+									<span>zoexbt@gmail.com</span></a>
+								<a href="https://x.com/zoexbt" target="_blank" class="menu__social-item">
+									<img src="img/header-mobile/x.svg" alt="Mail" />
+									<span>@zoexbt</span></a>
+								<a href="https://t.me/zoexbt" target="_blank" class="menu__social-item">
+									<img src="img/header-mobile/telegram.svg" alt="Mail" />
+									<span>@zoexbt</span></a>
+							</div>
+						</nav>
+					</div>
+				</div>
+			</header>
+
+			<main class="page">
+				<div class="page__body">
+					<div class="page__logo">
+						<img src="img/mobile/logo.png" alt="ZOE" />
+					</div>
+					<div class="page__left left-page">
+						<div class="left-page__body">
+							<div data-tabs class="left-page__tabs tabs">
+								<nav data-tabs-titles class="tabs__navigation">
+									<button type="button" class="tabs__title tabs__title--illustration _tab-active">
+										ILLUSTRATION
+									</button>
+									<button type="button" class="tabs__title tabs__title--animation">
+										ANIMATION
+									</button>
+								</nav>
+								<div data-tabs-body class="tabs__content">
+									<div class="tabs__body">
+										<div class="tabs__folders">
+											<div class="tabs__folder">
+												<div class="tabs__folder-image">
+													<img src="img/all-projects/myro.png" alt="Myro" />
+												</div>
+												<div class="tabs__folder-info">
+													<span>$MYRO</span>
+													<span>(4)</span>
+												</div>
+											</div>
+											<div class="tabs__folder">
+												<div class="tabs__folder-image">
+													<img src="img/all-projects/four.png" alt="FOUR" />
+												</div>
+												<div class="tabs__folder-info">
+													<span>FOUR</span>
+													<span>(3)</span>
+												</div>
+											</div>
+											<div class="tabs__folder">
+												<div class="tabs__folder-image">
+													<img src="img/all-projects/axol.png" alt="AXOL" />
+												</div>
+												<div class="tabs__folder-info">
+													<span>$Axol</span>
+													<span>(4)</span>
+												</div>
+											</div>
+											<div class="tabs__folder">
+												<div class="tabs__folder-image">
+													<img src="img/all-projects/lofi.png" alt="Lofi" />
+												</div>
+												<div class="tabs__folder-info">
+													<span>$Lofi</span>
+													<span>(4)</span>
+												</div>
+											</div>
+											<div class="tabs__folder">
+												<div class="tabs__folder-image">
+													<img src="img/all-projects/kimba.png" alt="KIMBA" />
+												</div>
+												<div class="tabs__folder-info">
+													<span>KIMBA</span>
+													<span>(3)</span>
+												</div>
+											</div>
+											<div class="tabs__folder">
+												<div class="tabs__folder-image">
+													<img src="img/all-projects/trump.png" alt="TRUMP" />
+												</div>
+												<div class="tabs__folder-info">
+													<span>TRUMP</span>
+													<span>(3)</span>
+												</div>
+											</div>
+											<div class="tabs__folder">
+												<div class="tabs__folder-image">
+													<img src="img/all-projects/mbapepe.png" alt="MBAPEPE" />
+												</div>
+												<div class="tabs__folder-info">
+													<span>MBAPEPE</span>
+													<span>(2)</span>
+												</div>
+											</div>
+											<div class="tabs__folder">
+												<div class="tabs__folder-image">
+													<img src="img/all-projects/lucky.png" alt="$LUCKY" />
+												</div>
+												<div class="tabs__folder-info">
+													<span>$LUCKY</span>
+													<span>(3)</span>
+												</div>
+											</div>
+											<div class="tabs__folder">
+												<div class="tabs__folder-image">
+													<img src="img/all-projects/duck.png" alt="DUCK" />
+												</div>
+												<div class="tabs__folder-info">
+													<span>DUCK</span>
+													<span>(5)</span>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="tabs__body">
+										<div class="tabs__folders">
+											<div class="tabs__folder">
+												<div class="tabs__folder-image">
+													<img src="img/all-projects/axol-anim.png" alt="Axol" />
+												</div>
+												<div class="tabs__folder-info">
+													<span>$Axol</span>
+													<span>(5)</span>
+												</div>
+											</div>
+											<div class="tabs__folder">
+												<div class="tabs__folder-image">
+													<img src="img/all-projects/lofi-anim.png" alt="$LoFi" />
+												</div>
+												<div class="tabs__folder-info">
+													<span>$LoFi</span>
+													<span>(7)</span>
+												</div>
+											</div>
+											<div class="tabs__folder">
+												<div class="tabs__folder-image">
+													<img src="img/all-projects/nyan-anim.png" alt="Nyan" />
+												</div>
+												<div class="tabs__folder-info">
+													<span>Nyan</span>
+													<span>(3)</span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="page__main main-page">
+						<div class="main-page__sliders">
+							<div class="main-page__slider-box">
+								<div class="main-page__slider main-page__slider--1 swiper active">
+									<div class="main-page__wrapper swiper-wrapper">
+										<div class="main-page__slide swiper-slide">
+											<img src="img/sliders/01/01.png" alt="Myro" />
+										</div>
+										<div class="main-page__slide swiper-slide">
+											<img src="img/sliders/01/02.png" alt="Myro" />
+										</div>
+										<div class="main-page__slide swiper-slide">
+											<img src="img/sliders/01/03.png" alt="Myro" />
+										</div>
+										<div class="main-page__slide swiper-slide">
+											<img src="img/sliders/01/04.png" alt="Myro" />
+										</div>
+									</div>
+									<div class="main-page__swiper-pagination swiper-pagination"></div>
+								</div>
+								<div class="main-page__slider main-page__slider--2 swiper">
+									<div class="main-page__wrapper swiper-wrapper">
+										<div class="main-page__slide swiper-slide">
+											<img src="img/sliders/02/01.png" alt="FOUR" />
+										</div>
+										<div class="main-page__slide swiper-slide">
+											<img src="img/sliders/02/02.png" alt="FOUR" />
+										</div>
+										<div class="main-page__slide swiper-slide">
+											<img src="img/sliders/02/03.png" alt="FOUR" />
+										</div>
+									</div>
+									<div class="main-page__swiper-pagination swiper-pagination"></div>
+								</div>
+								<div class="main-page__slider main-page__slider--3 swiper">
+									<div class="main-page__wrapper swiper-wrapper">
+										<div class="main-page__slide swiper-slide">
+											<img src="img/sliders/03/01.png" alt="Axol" />
+										</div>
+										<div class="main-page__slide swiper-slide">
+											<img src="img/sliders/03/02.png" alt="Axol" />
+										</div>
+										<div class="main-page__slide swiper-slide">
+											<img src="img/sliders/03/03.png" alt="Axol" />
+										</div>
+										<div class="main-page__slide swiper-slide">
+											<img src="img/sliders/03/04.png" alt="Axol" />
+										</div>
+									</div>
+									<div class="main-page__swiper-pagination swiper-pagination"></div>
+								</div>
+								<div class="main-page__slider main-page__slider--4 swiper">
+									<div class="main-page__wrapper swiper-wrapper">
+										<div class="main-page__slide swiper-slide">
+											<img src="img/sliders/04/01.png" alt="Lofi" />
+										</div>
+										<div class="main-page__slide swiper-slide">
+											<img src="img/sliders/04/02.png" alt="Lofi" />
+										</div>
+										<div class="main-page__slide swiper-slide">
+											<img src="img/sliders/04/03.png" alt="Lofi" />
+										</div>
+										<div class="main-page__slide swiper-slide">
+											<img src="img/sliders/04/04.png" alt="Lofi" />
+										</div>
+									</div>
+									<div class="main-page__swiper-pagination swiper-pagination"></div>
+								</div>
+								<div class="main-page__slider main-page__slider--5 swiper">
+									<div class="main-page__wrapper swiper-wrapper">
+										<div class="main-page__slide swiper-slide">
+											<img src="img/sliders/05/01.png" alt="KIMBA" />
+										</div>
+										<div class="main-page__slide swiper-slide">
+											<img src="img/sliders/05/02.png" alt="KIMBA" />
+										</div>
+										<div class="main-page__slide swiper-slide">
+											<img src="img/sliders/05/03.png" alt="KIMBA" />
+										</div>
+									</div>
+									<div class="main-page__swiper-pagination swiper-pagination"></div>
+								</div>
+								<div class="main-page__slider main-page__slider--6 swiper">
+									<div class="main-page__wrapper swiper-wrapper">
+										<div class="main-page__slide swiper-slide">
+											<img src="img/sliders/06/01.png" alt="TRUMP" />
+										</div>
+										<div class="main-page__slide swiper-slide">
+											<img src="img/sliders/06/02.png" alt="TRUMP" />
+										</div>
+										<div class="main-page__slide swiper-slide">
+											<img src="img/sliders/06/03.png" alt="TRUMP" />
+										</div>
+									</div>
+									<div class="main-page__swiper-pagination swiper-pagination"></div>
+								</div>
+								<div class="main-page__slider main-page__slider--7 swiper">
+									<div class="main-page__wrapper swiper-wrapper">
+										<div class="main-page__slide swiper-slide">
+											<img src="img/sliders/07/01.png" alt="MBAPEPE" />
+										</div>
+										<div class="main-page__slide swiper-slide">
+											<img src="img/sliders/07/02.png" alt="MBAPEPE" />
+										</div>
+									</div>
+									<div class="main-page__swiper-pagination swiper-pagination"></div>
+								</div>
+								<div class="main-page__slider main-page__slider--8 swiper">
+									<div class="main-page__wrapper swiper-wrapper">
+										<div class="main-page__slide swiper-slide">
+											<img src="img/sliders/08/01.png" alt="$LUCKY" />
+										</div>
+										<div class="main-page__slide swiper-slide">
+											<img src="img/sliders/08/02.png" alt="$LUCKY" />
+										</div>
+										<div class="main-page__slide swiper-slide">
+											<img src="img/sliders/08/03.png" alt="$LUCKY" />
+										</div>
+									</div>
+									<div class="main-page__swiper-pagination swiper-pagination"></div>
+								</div>
+								<div class="main-page__slider main-page__slider--9 swiper">
+									<div class="main-page__wrapper swiper-wrapper">
+										<div class="main-page__slide swiper-slide">
+											<img src="img/sliders/09/01.png" alt="$LUCKY" />
+										</div>
+										<div class="main-page__slide swiper-slide">
+											<img src="img/sliders/09/02.png" alt="DUCK" />
+										</div>
+										<div class="main-page__slide swiper-slide">
+											<img src="img/sliders/09/03.png" alt="DUCK" />
+										</div>
+										<div class="main-page__slide swiper-slide">
+											<img src="img/sliders/09/04.png" alt="DUCK" />
+										</div>
+										<div class="main-page__slide swiper-slide">
+											<img src="img/sliders/09/05.png" alt="DUCK" />
+										</div>
+									</div>
+									<div class="main-page__swiper-pagination swiper-pagination"></div>
+								</div>
+								<div class="main-page__slider main-page__slider--10 swiper">
+									<div class="main-page__wrapper swiper-wrapper">
+										<div class="main-page__slide swiper-slide">
+											<video muted loop playsinline webkit-playsinline src="img/sliders/10/01.mp4"></video>
+										</div>
+										<div class="main-page__slide swiper-slide">
+											<video muted loop playsinline webkit-playsinline src="img/sliders/10/02.mp4"></video>
+										</div>
+										<div class="main-page__slide swiper-slide">
+											<video muted loop playsinline webkit-playsinline src="img/sliders/10/03.mp4"></video>
+										</div>
+										<div class="main-page__slide swiper-slide">
+											<video muted loop playsinline webkit-playsinline src="img/sliders/10/04.mp4"></video>
+										</div>
+										<div class="main-page__slide swiper-slide">
+											<video muted loop playsinline webkit-playsinline src="img/sliders/10/05.mp4"></video>
+										</div>
+									</div>
+									<div class="main-page__swiper-pagination swiper-pagination"></div>
+									<!-- <button type="button" class="main-page__swiper-sound">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none">
+                        <path
+                          d="M11 2H9V4H7V6H5V8H1V16H5V18H7V20H9V22H11V2ZM7 18V16H5V14H3V10H5V8H7V6H9V18H7ZM13 10H15V14H13V10ZM21 4H19V2H13V4H19V6H21V18H19V20H13V22H19V20H21V18H23V6H21V4ZM19 8H17V6H13V8H17V16H13V18H17V16H19V8Z"
+                          fill="white" />
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="25"
+                        viewBox="0 0 24 25"
+                        fill="none">
+                        <path
+                          d="M13 2.19714H11V4.19714H9V6.19714H7V8.19714H3V16.1971H7V18.1971H9V20.1971H11V22.1971H13V2.19714ZM9 18.1971V16.1971H7V14.1971H5V10.1971H7V8.19714H9V6.19714H11V18.1971H9ZM19 11.4201H17V9.42014H15V11.4201H17V13.4201H15V15.4201H17V13.4201H19V15.4201H21V13.4201H19V11.4201ZM19 11.4201H21V9.42014H19V11.4201Z"
+                          fill="white" />
+                      </svg>
+                    </button> -->
+								</div>
+								<div class="main-page__slider main-page__slider--11 swiper">
+									<div class="main-page__wrapper swiper-wrapper">
+										<div class="main-page__slide swiper-slide">
+											<video muted loop playsinline webkit-playsinline src="img/sliders/11/01.mp4"></video>
+										</div>
+										<div class="main-page__slide swiper-slide">
+											<video muted loop playsinline webkit-playsinline src="img/sliders/11/02.mp4"></video>
+										</div>
+										<div class="main-page__slide swiper-slide">
+											<video muted loop playsinline webkit-playsinline src="img/sliders/11/03.mp4"></video>
+										</div>
+										<div class="main-page__slide swiper-slide">
+											<video muted loop playsinline webkit-playsinline src="img/sliders/11/04.mp4"></video>
+										</div>
+										<div class="main-page__slide swiper-slide">
+											<video muted loop playsinline webkit-playsinline src="img/sliders/11/05.mp4"></video>
+										</div>
+										<div class="main-page__slide swiper-slide">
+											<video muted loop playsinline webkit-playsinline src="img/sliders/11/06.mp4"></video>
+										</div>
+										<div class="main-page__slide swiper-slide">
+											<video muted loop playsinline webkit-playsinline src="img/sliders/11/07.mp4"></video>
+										</div>
+									</div>
+									<div class="main-page__swiper-pagination swiper-pagination"></div>
+									<!-- <button type="button" class="main-page__swiper-sound">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none">
+                        <path
+                          d="M11 2H9V4H7V6H5V8H1V16H5V18H7V20H9V22H11V2ZM7 18V16H5V14H3V10H5V8H7V6H9V18H7ZM13 10H15V14H13V10ZM21 4H19V2H13V4H19V6H21V18H19V20H13V22H19V20H21V18H23V6H21V4ZM19 8H17V6H13V8H17V16H13V18H17V16H19V8Z"
+                          fill="white" />
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="25"
+                        viewBox="0 0 24 25"
+                        fill="none">
+                        <path
+                          d="M13 2.19714H11V4.19714H9V6.19714H7V8.19714H3V16.1971H7V18.1971H9V20.1971H11V22.1971H13V2.19714ZM9 18.1971V16.1971H7V14.1971H5V10.1971H7V8.19714H9V6.19714H11V18.1971H9ZM19 11.4201H17V9.42014H15V11.4201H17V13.4201H15V15.4201H17V13.4201H19V15.4201H21V13.4201H19V11.4201ZM19 11.4201H21V9.42014H19V11.4201Z"
+                          fill="white" />
+                      </svg>
+                    </button> -->
+								</div>
+								<div class="main-page__slider main-page__slider--12 swiper">
+									<div class="main-page__wrapper swiper-wrapper">
+										<div class="main-page__slide swiper-slide">
+											<video autoplay muted loop playsinline webkit-playsinline src="img/sliders/12/01.mp4"></video>
+										</div>
+										<div class="main-page__slide swiper-slide">
+											<video autoplay muted loop playsinline webkit-playsinline src="img/sliders/12/02.mp4"></video>
+										</div>
+										<div class="main-page__slide swiper-slide">
+											<video autoplay muted loop playsinline webkit-playsinline src="img/sliders/12/03.mp4"></video>
+										</div>
+									</div>
+									<div class="main-page__swiper-pagination swiper-pagination"></div>
+									<!-- <button type="button" class="main-page__swiper-sound">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none">
+                        <path
+                          d="M11 2H9V4H7V6H5V8H1V16H5V18H7V20H9V22H11V2ZM7 18V16H5V14H3V10H5V8H7V6H9V18H7ZM13 10H15V14H13V10ZM21 4H19V2H13V4H19V6H21V18H19V20H13V22H19V20H21V18H23V6H21V4ZM19 8H17V6H13V8H17V16H13V18H17V16H19V8Z"
+                          fill="white" />
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="25"
+                        viewBox="0 0 24 25"
+                        fill="none">
+                        <path
+                          d="M13 2.19714H11V4.19714H9V6.19714H7V8.19714H3V16.1971H7V18.1971H9V20.1971H11V22.1971H13V2.19714ZM9 18.1971V16.1971H7V14.1971H5V10.1971H7V8.19714H9V6.19714H11V18.1971H9ZM19 11.4201H17V9.42014H15V11.4201H17V13.4201H15V15.4201H17V13.4201H19V15.4201H21V13.4201H19V11.4201ZM19 11.4201H21V9.42014H19V11.4201Z"
+                          fill="white" />
+                      </svg>
+                    </button> -->
+								</div>
+								<div class="main-page__bottom-navigation">
+									<button type="button" class="main-page__bottom-navigation-button prev">
+										<img src="img/sliders/bl.svg" alt="prev" />
+										<img src="img/sliders/bl-hover.svg" alt="prev" />
+									</button>
+									<div class="main-page__bottom-navigation-info">
+										<div class="main-page__bottom-navigation-info-number">
+											01.
+										</div>
+										<div class="main-page__bottom-navigation-info-name">
+											$ANDY
+										</div>
+										<div class="main-page__bottom-navigation-info-num-of-arts">
+											(5 ARTS)
+										</div>
+									</div>
+									<button type="button" class="main-page__bottom-navigation-button next">
+										<img src="img/sliders/br.svg" alt="next" />
+										<img src="img/sliders/br-hover.svg" alt="next" />
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="page__right right-page">
+						<div class="right-page__logo">
+							<img src="img/profile/logo.png" alt="ZOE XBT" />
+						</div>
+						<div class="right-page__profile">
+							<div class="right-page__profile-avatar">
+								<video muted autoplay loop playsinline webkit-playsinline src="img/header-mobile/menu.mp4"></video>
+							</div>
+							<div class="right-page__profile-actions">
+								<div class="right-page__profile-buttons">
+									<a href="mailto:zoexbt@gmail.com" target="_blank" class="right-page__profile-get">
+										<img src="img/profile/get.svg" alt="Get in touch" />
+										<img src="img/profile/get-hover.svg" alt="Get in touch" />
+									</a>
+									<a href="mailto:zoexbt@gmail.com" target="_blank" class="right-page__profile-button">
+										<img src="img/profile/mail.svg" alt="Mail" />
+										<img src="img/profile/mail-hover.svg" alt="Mail" />
+									</a>
+									<a href="https://t.me/zoexbt" target="_blank" class="right-page__profile-button">
+										<img src="img/profile/telegram.svg" alt="Telegram" />
+										<img src="img/profile/telegram-hover.svg" alt="Telegram" />
+									</a>
+									<a href="https://x.com/zoexbt" target="_blank" class="right-page__profile-button">
+										<img src="img/profile/x.svg" alt="X" />
+										<img src="img/profile/x-hover.svg" alt="X" />
+									</a>
+								</div>
+								<button type="button" class="right-page__profile-button flower" id="flowerButton">
+									<img src="img/profile/flower.svg" alt="flower" />
+									<img src="img/profile/flower-hover.svg" alt="flower" />
+								</button>
+							</div>
+						</div>
+						<div class="right-page__about">
+							<div class="right-page__about-icon">
+								<img src="img/profile/about-icon.svg" alt="flower" />
+							</div>
+							<div class="right-page__about-title">HI, I’M ZOE!</div>
+							<div class="right-page__about-text">
+								I am an artist/entrepreneur specializing in memecoin art,
+								branding, and visual storytelling. Known for creative
+								contributions and viral projects such as Myro, Peng, Andy,
+								Four, Lofi, and Axol.
+							</div>
+							<a href="#" data-popup="#about" class="right-page__about-more start-flowers">
+								<img src="img/profile/more.svg" alt="Read More" />
+								<img src="img/profile/more-hover.svg" alt="Read More" />
+							</a>
+						</div>
+					</div>
+				</div>
+			</main>
+			<footer class="footer">
+				<div class="footer__container">
+					<div class="footer__left">
+						<div class="footer__text">2025©All Rights Reserved</div>
+					</div>
+					<div class="footer__middle">
+						<a href="#" data-popup="#about" class="footer__logo start-flowers">ZOEXBT</a>
+					</div>
+					<div class="footer__right">
+						<a href="https://t.me/osnovoco" target="_blank" class="footer__osnovo">
+							<span>Designed by</span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
+								<path d="M8.34948 7.93274L14.0158 17.4162H2.68322L8.34948 7.93274Z" fill="white" />
+								<path d="M17.7574 12.7842L13.1098 5.12023L22.405 5.12023L17.7574 12.7842Z" fill="white" />
+							</svg>
+							<svg xmlns="http://www.w3.org/2000/svg" width="60" height="11" viewBox="0 0 60 11" fill="none">
+								<path d="M50.248 5.22542C50.248 4.29481 50.4578 3.47561 50.8772 2.76782C51.3097 2.06004 51.893 1.50954 52.627 1.11632C53.361 0.709997 54.1933 0.506836 55.1239 0.506836C56.0545 0.506836 56.8803 0.709997 57.6012 1.11632C58.3352 1.50954 58.9184 2.06004 59.351 2.76782C59.7835 3.47561 59.9998 4.29481 59.9998 5.22542C59.9998 6.14292 59.7835 6.96212 59.351 7.68302C58.9184 8.39081 58.3352 8.94786 57.6012 9.35419C56.8803 9.7474 56.0545 9.94401 55.1239 9.94401C54.1933 9.94401 53.361 9.7474 52.627 9.35419C51.893 8.94786 51.3097 8.39081 50.8772 7.68302C50.4578 6.96212 50.248 6.14292 50.248 5.22542ZM52.4304 5.22542C52.4304 5.78903 52.5484 6.2871 52.7843 6.71964C53.0202 7.13907 53.3413 7.4733 53.7477 7.72234C54.154 7.95827 54.6127 8.07623 55.1239 8.07623C55.622 8.07623 56.0742 7.95827 56.4805 7.72234C56.8999 7.4733 57.2276 7.13907 57.4635 6.71964C57.6995 6.2871 57.8174 5.78903 57.8174 5.22542C57.8174 4.66181 57.6995 4.16374 57.4635 3.7312C57.2276 3.29867 56.8999 2.96443 56.4805 2.7285C56.0742 2.49257 55.622 2.37461 55.1239 2.37461C54.6127 2.37461 54.154 2.49257 53.7477 2.7285C53.3413 2.96443 53.0202 3.29867 52.7843 3.7312C52.5484 4.16374 52.4304 4.66181 52.4304 5.22542Z" fill="white" />
+								<path d="M40.5166 0.703613H42.8366L45.1959 6.54286L47.5552 0.703613H49.8948L45.1959 10.5733L40.5166 0.703613Z" fill="white" />
+								<path d="M30.4141 5.22542C30.4141 4.29481 30.6238 3.47561 31.0432 2.76782C31.4757 2.06004 32.059 1.50954 32.793 1.11632C33.527 0.709997 34.3593 0.506836 35.2899 0.506836C36.2205 0.506836 37.0463 0.709997 37.7672 1.11632C38.5012 1.50954 39.0845 2.06004 39.517 2.76782C39.9495 3.47561 40.1658 4.29481 40.1658 5.22542C40.1658 6.14292 39.9495 6.96212 39.517 7.68302C39.0845 8.39081 38.5012 8.94786 37.7672 9.35419C37.0463 9.7474 36.2205 9.94401 35.2899 9.94401C34.3593 9.94401 33.527 9.7474 32.793 9.35419C32.059 8.94786 31.4757 8.39081 31.0432 7.68302C30.6238 6.96212 30.4141 6.14292 30.4141 5.22542ZM32.5964 5.22542C32.5964 5.78903 32.7144 6.2871 32.9503 6.71964C33.1862 7.13907 33.5074 7.4733 33.9137 7.72234C34.32 7.95827 34.7788 8.07623 35.2899 8.07623C35.788 8.07623 36.2402 7.95827 36.6465 7.72234C37.066 7.4733 37.3936 7.13907 37.6296 6.71964C37.8655 6.2871 37.9835 5.78903 37.9835 5.22542C37.9835 4.66181 37.8655 4.16374 37.6296 3.7312C37.3936 3.29867 37.066 2.96443 36.6465 2.7285C36.2402 2.49257 35.788 2.37461 35.2899 2.37461C34.7788 2.37461 34.32 2.49257 33.9137 2.7285C33.5074 2.96443 33.1862 3.29867 32.9503 3.7312C32.7144 4.16374 32.5964 4.66181 32.5964 5.22542Z" fill="white" />
+								<path d="M26.2083 4.24238C26.2083 3.57392 26.0706 3.06929 25.7954 2.7285C25.5201 2.38772 25.0942 2.21732 24.5174 2.21732C24.1242 2.21732 23.7769 2.30252 23.4754 2.47291C23.1739 2.6302 22.938 2.86613 22.7676 3.1807C22.5972 3.48217 22.512 3.83606 22.512 4.24238V9.7474H20.3887V0.703444H22.512V2.09936C22.8004 1.56196 23.1674 1.1622 23.613 0.900051C24.0718 0.637908 24.6157 0.506836 25.2449 0.506836C26.2672 0.506836 27.0471 0.821408 27.5845 1.45055C28.1219 2.06659 28.3906 2.91856 28.3906 4.00645V9.7474H26.2083V4.24238Z" fill="white" />
+								<path d="M12.4623 6.77862C12.7506 7.09319 13.039 7.36845 13.3273 7.60438C13.6288 7.8272 13.9303 7.99759 14.2317 8.11555C14.5332 8.22041 14.8347 8.27284 15.1361 8.27284C15.5162 8.27284 15.8111 8.18764 16.0209 8.01725C16.2437 7.84686 16.3551 7.61093 16.3551 7.30946C16.3551 7.04732 16.2699 6.8245 16.0995 6.641C15.9291 6.44439 15.6932 6.28055 15.3917 6.14948C15.0903 6.0053 14.7364 5.86112 14.33 5.71694C13.9237 5.55965 13.5174 5.37615 13.1111 5.16644C12.7179 4.94362 12.3902 4.65526 12.128 4.30137C11.879 3.94747 11.7545 3.50183 11.7545 2.96443C11.7545 2.41393 11.8921 1.95518 12.1673 1.58818C12.4557 1.22118 12.8358 0.95248 13.3077 0.782086C13.7926 0.598586 14.3104 0.506836 14.8609 0.506836C15.3589 0.506836 15.8243 0.578926 16.2568 0.723105C16.7024 0.867284 17.1022 1.05734 17.4561 1.29327C17.81 1.5292 18.1115 1.79789 18.3605 2.09936L17.1808 3.35765C16.8794 3.00375 16.5189 2.7154 16.0995 2.49257C15.6801 2.26975 15.2475 2.15834 14.8019 2.15834C14.5004 2.15834 14.2514 2.22388 14.0548 2.35495C13.8582 2.48602 13.7599 2.67607 13.7599 2.92511C13.7599 3.13483 13.8451 3.32488 14.0155 3.49527C14.199 3.65256 14.4349 3.79674 14.7233 3.92781C15.0247 4.05888 15.3589 4.19651 15.7259 4.34069C16.224 4.53729 16.6828 4.75356 17.1022 4.98949C17.5216 5.22542 17.8559 5.51378 18.1049 5.85457C18.367 6.19535 18.4981 6.641 18.4981 7.1915C18.4981 8.04347 18.2032 8.73159 17.6134 9.25588C17.0367 9.76706 16.2502 10.0227 15.2541 10.0227C14.6381 10.0227 14.0679 9.9309 13.5436 9.7474C13.0324 9.55079 12.5802 9.30175 12.187 9.00029C11.8069 8.68572 11.4858 8.35804 11.2236 8.01725L12.4623 6.77862Z" fill="white" />
+								<path d="M0.286133 5.22542C0.286133 4.29481 0.495848 3.47561 0.915278 2.76782C1.34781 2.06004 1.93108 1.50954 2.66509 1.11632C3.39909 0.709997 4.2314 0.506836 5.162 0.506836C6.09262 0.506836 6.91837 0.709997 7.63926 1.11632C8.37327 1.50954 8.95654 2.06004 9.38907 2.76782C9.82161 3.47561 10.0379 4.29481 10.0379 5.22542C10.0379 6.14292 9.82161 6.96212 9.38907 7.68302C8.95654 8.39081 8.37327 8.94786 7.63926 9.35419C6.91837 9.7474 6.09262 9.94401 5.162 9.94401C4.2314 9.94401 3.39909 9.7474 2.66509 9.35419C1.93108 8.94786 1.34781 8.39081 0.915278 7.68302C0.495848 6.96212 0.286133 6.14292 0.286133 5.22542ZM2.46848 5.22542C2.46848 5.78903 2.58644 6.2871 2.82237 6.71964C3.0583 7.13907 3.37943 7.4733 3.78575 7.72234C4.19207 7.95827 4.65083 8.07623 5.162 8.07623C5.66008 8.07623 6.11228 7.95827 6.5186 7.72234C6.93803 7.4733 7.26571 7.13907 7.50164 6.71964C7.73757 6.2871 7.85553 5.78903 7.85553 5.22542C7.85553 4.66181 7.73757 4.16374 7.50164 3.7312C7.26571 3.29867 6.93803 2.96443 6.5186 2.7285C6.11228 2.49257 5.66008 2.37461 5.162 2.37461C4.65083 2.37461 4.19207 2.49257 3.78575 2.7285C3.37943 2.96443 3.0583 3.29867 2.82237 3.7312C2.58644 4.16374 2.46848 4.66181 2.46848 5.22542Z" fill="white" />
+							</svg>
+						</a>
+					</div>
+				</div>
+			</footer>
+
+		</div>
+	</div>
+	<div id="about" aria-hidden="true" class="popup">
+		<div class="popup__wrapper">
+			<div class="popup__content">
+				<div class="popup__title">HI, I’M ZOE!</div>
+				<div class="popup__text">
+					I am an artist/entrepreneur specializing in memecoin art, branding, and
+					visual storytelling. Known for creative contributions and viral projects
+					such as Myro, Peng, Andy, Four, Lofi, and Axol, my work blends together
+					a niche understanding of internet culture and blockchain technology.
+					With an eye for dynamic design and innovative expression, I aim to
+					create visuals that both captivate individuals and build strong
+					communities.
+				</div>
+				<div class="popup__actions">
+					<button data-close type="button" class="popup__close">
+						<img src="img/about/close.svg" alt="Close" />
+						<img src="img/about/close-hover.svg" alt="Close" />
+					</button>
+					<div class="popup__actions-right">
+						<a href="mailto:zoexbt@gmail.com" target="_blank" class="popup__actions-get">
+							<img src="img/about/get.svg" alt="Get in touch" />
+							<img src="img/about/get-hover.svg" alt="Get in touch" />
+						</a>
+						<div class="popup__actions-right-social">
+							<a href="mailto:zoexbt@gmail.com" target="_blank" class="popup__actions-right-social-item">
+								<img src="img/about/mail.svg" alt="Mail" />
+								<img src="img/about/mail-hover.svg" alt="Mail" /></a>
+							<a href="https://t.me/zoexbt" target="_blank" class="popup__actions-right-social-item">
+								<img src="img/about/telegram.svg" alt="Telegram" />
+								<img src="img/about/telegram-hover.svg" alt="Telegram" /></a>
+							<a href="https://x.com/zoexbt" target="_blank" class="popup__actions-right-social-item">
+								<img src="img/about/x.svg" alt="X" />
+								<img src="img/about/x-hover.svg" alt="X" /></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="js/app.min.js?_v=20250118231258"></script>
+</body>
+
+</html>
