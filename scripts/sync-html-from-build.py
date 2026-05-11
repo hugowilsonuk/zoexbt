@@ -72,7 +72,7 @@ def folder_block(ticker: str, count: int, thumb_base: str, slider_idx: int) -> s
     return (
         f'{tab}<div class="tabs__folder">\n'
         f'{tab2}<div class="tabs__folder-image">\n'
-        f'{tab2}\t<img src="{src}" alt="{ticker}" />\n'
+        f'{tab2}\t<img src="{src}" alt="{ticker}" loading="lazy" decoding="async" />\n'
         f'{tab2}</div>\n'
         f'{tab2}<div class="tabs__folder-info">\n'
         f'{tab2}\t<span>{ticker}</span>\n'
@@ -82,19 +82,24 @@ def folder_block(ticker: str, count: int, thumb_base: str, slider_idx: int) -> s
     )
 
 
-def slide_inner(path: Path, ticker: str) -> str:
+def slide_inner(path: Path, ticker: str, slider_idx: int, slide_i: int) -> str:
+    """Load perf: only first image of slider 1 is eager/LCP; others lazy. All videos preload=none."""
     rel = f"img/sliders/{path.parent.name}/{path.name}"
     tab = "\t\t\t\t\t\t\t\t\t\t"
     tab2 = tab + "\t"
     if path.suffix.lower() in {".mp4", ".webm", ".mov"}:
         return (
             f'{tab}<div class="main-page__slide swiper-slide">\n'
-            f'{tab2}<video muted loop playsinline webkit-playsinline src="{rel}"></video>\n'
+            f'{tab2}<video muted loop playsinline webkit-playsinline preload="none" src="{rel}"></video>\n'
             f'{tab}</div>\n\n'
         )
+    if slider_idx == 1 and slide_i == 0:
+        img_attrs = 'fetchpriority="high" loading="eager" decoding="async"'
+    else:
+        img_attrs = 'loading="lazy" decoding="async"'
     return (
         f'{tab}<div class="main-page__slide swiper-slide">\n'
-        f'{tab2}<img src="{rel}" alt="{ticker}" />\n'
+        f'{tab2}<img src="{rel}" alt="{ticker}" {img_attrs} />\n'
         f'{tab}</div>\n\n'
     )
 
@@ -102,11 +107,10 @@ def slide_inner(path: Path, ticker: str) -> str:
 def slider_block(idx: int, ticker: str, active: bool) -> str:
     d = SL / f"{idx:02d}"
     files = sorted([p for p in d.iterdir() if p.is_file()], key=lambda p: natural_key(p.name))
-    inner = "".join(slide_inner(p, ticker) for p in files)
+    inner = "".join(slide_inner(p, ticker, idx, i) for i, p in enumerate(files))
     active_cls = " active" if active else ""
     tab = "\t\t\t\t\t\t\t\t"
     tab2 = tab + "\t"
-    tab3 = tab2 + "\t"
     return (
         f'{tab}<div class="main-page__slider main-page__slider--{idx} swiper{active_cls}">\n'
         f'{tab2}<div class="main-page__wrapper swiper-wrapper">\n'
