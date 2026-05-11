@@ -1,0 +1,23 @@
+# idx thumb_base ticker count kind
+01 myro $MYRO 11 ARTS
+02 four $FOUR 3 ARTS
+03 axol $AXOL 12 ARTS
+04 lofi $LOFI 12 ARTS
+05 kimba $KIMBA 3 ARTS
+06 metropolis $METROPOLIS 4 ARTS
+07 muskit $MUSKIT 5 ARTS
+08 dino $DINO 5 ARTS
+09 trump $TRUMP 6 ARTS
+10 mbapepe $MBAPEPE 2 ARTS
+11 lucky $LUCKY 3 ARTS
+12 duck $DUCK 5 ARTS
+13 ducky $DUCKY 4 ARTS
+14 evan $EVAN 5 ARTS
+15 orbit-boy $ORBIT 6 ARTS
+16 axol $AXOL 9 ANIMATIONS
+17 lofi $LOFI 16 ANIMATIONS
+18 metropolis $METROPOLIS 8 ANIMATIONS
+19 muskit $MUSKIT 3 ANIMATIONS
+20 evan $EVAN 2 ANIMATIONS
+21 nyan $NYAN 6 ANIMATIONS
+22 suicy $SUICY 2 ANIMATIONS

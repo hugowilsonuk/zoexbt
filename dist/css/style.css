@@ -513,8 +513,8 @@ body::after {
 }
 .footer__container {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   -webkit-column-gap: 1.25rem;
   -moz-column-gap: 1.25rem;
   column-gap: 1.25rem
@@ -526,42 +526,21 @@ body::after {
 .footer__text {
   color: #fff;
   font-style: normal;
-  font-weight: 500;
-  line-height: 120%
+  font-weight: 400;
+  line-height: 1.45;
+  letter-spacing: .03em;
+  white-space: nowrap
 }
 .footer__middle {
   display: flex;
   align-items: center;
-  justify-content: center
+  justify-content: flex-end
 }
 .footer__logo {
   color: #fff;
   font-style: normal;
   font-weight: 500;
   line-height: 120%
-}
-.footer__right {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  -webkit-column-gap: .375rem;
-  -moz-column-gap: .375rem;
-  column-gap: .375rem
-}
-.footer__osnovo {
-  display: flex;
-  align-items: center
-}
-.footer__osnovo span {
-  color: #fff;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-  text-transform: uppercase;
-  margin-right: .375rem
-}
-.footer__osnovo svg:not(:last-child) {
-  margin-right: .125rem
 }
 @-webkit-keyframes music-play {
   0% {
@@ -1084,196 +1063,11 @@ body.show-main .main-page-wrapper {
   cursor: pointer;
   display: inline-block;
   aspect-ratio: 1;
-  border: .1875rem solid #fff
-}
-.main-page__slider--1 .main-page__swiper-pagination>.swiper-pagination-bullet:nth-child(1) {
-  background: url(../img/sliders/01/pag/01.png) center/cover no-repeat
-}
-.main-page__slider--2 .main-page__swiper-pagination>.swiper-pagination-bullet:nth-child(1) {
-  background: url(../img/sliders/02/pag/01.png) center/cover no-repeat
-}
-.main-page__slider--3 .main-page__swiper-pagination>.swiper-pagination-bullet:nth-child(1) {
-  background: url(../img/sliders/03/pag/01.png) center/cover no-repeat
-}
-.main-page__slider--4 .main-page__swiper-pagination>.swiper-pagination-bullet:nth-child(1) {
-  background: url(../img/sliders/04/pag/01.png) center/cover no-repeat
-}
-.main-page__slider--5 .main-page__swiper-pagination>.swiper-pagination-bullet:nth-child(1) {
-  background: url(../img/sliders/05/pag/01.png) center/cover no-repeat
-}
-.main-page__slider--6 .main-page__swiper-pagination>.swiper-pagination-bullet:nth-child(1) {
-  background: url(../img/sliders/06/pag/01.png) center/cover no-repeat
-}
-.main-page__slider--7 .main-page__swiper-pagination>.swiper-pagination-bullet:nth-child(1) {
-  background: url(../img/sliders/07/pag/01.png) center/cover no-repeat
-}
-.main-page__slider--8 .main-page__swiper-pagination>.swiper-pagination-bullet:nth-child(1) {
-  background: url(../img/sliders/08/pag/01.png) center/cover no-repeat
-}
-.main-page__slider--9 .main-page__swiper-pagination>.swiper-pagination-bullet:nth-child(1) {
-  background: url(../img/sliders/09/pag/01.png) center/cover no-repeat
-}
-.main-page__slider--10 .main-page__swiper-pagination>.swiper-pagination-bullet:nth-child(1) {
-  background: url(../img/sliders/10/pag/01.png) center/cover no-repeat
-}
-.main-page__slider--11 .main-page__swiper-pagination>.swiper-pagination-bullet:nth-child(1) {
-  background: url(../img/sliders/11/pag/01.png) center/cover no-repeat
-}
-.main-page__slider--12 .main-page__swiper-pagination>.swiper-pagination-bullet:nth-child(1) {
-  background: url(../img/sliders/12/pag/01.png) center/cover no-repeat
-}
-.main-page__slider--1 .main-page__swiper-pagination>.swiper-pagination-bullet:nth-child(2) {
-  background: url(../img/sliders/01/pag/02.png) center/cover no-repeat
-}
-.main-page__slider--2 .main-page__swiper-pagination>.swiper-pagination-bullet:nth-child(2) {
-  background: url(../img/sliders/02/pag/02.png) center/cover no-repeat
-}
-.main-page__slider--3 .main-page__swiper-pagination>.swiper-pagination-bullet:nth-child(2) {
-  background: url(../img/sliders/03/pag/02.png) center/cover no-repeat
-}
-.main-page__slider--4 .main-page__swiper-pagination>.swiper-pagination-bullet:nth-child(2) {
-  background: url(../img/sliders/04/pag/02.png) center/cover no-repeat
-}
-.main-page__slider--5 .main-page__swiper-pagination>.swiper-pagination-bullet:nth-child(2) {
-  background: url(../img/sliders/05/pag/02.png) center/cover no-repeat
-}
-.main-page__slider--6 .main-page__swiper-pagination>.swiper-pagination-bullet:nth-child(2) {
-  background: url(../img/sliders/06/pag/02.png) center/cover no-repeat
-}
-.main-page__slider--7 .main-page__swiper-pagination>.swiper-pagination-bullet:nth-child(2) {
-  background: url(../img/sliders/07/pag/02.png) center/cover no-repeat
-}
-.main-page__slider--8 .main-page__swiper-pagination>.swiper-pagination-bullet:nth-child(2) {
-  background: url(../img/sliders/08/pag/02.png) center/cover no-repeat
-}
-.main-page__slider--9 .main-page__swiper-pagination>.swiper-pagination-bullet:nth-child(2) {
-  background: url(../img/sliders/09/pag/02.png) center/cover no-repeat
-}
-.main-page__slider--10 .main-page__swiper-pagination>.swiper-pagination-bullet:nth-child(2) {
-  background: url(../img/sliders/10/pag/02.png) center/cover no-repeat
-}
-.main-page__slider--11 .main-page__swiper-pagination>.swiper-pagination-bullet:nth-child(2) {
-  background: url(../img/sliders/11/pag/02.png) center/cover no-repeat
-}
-.main-page__slider--12 .main-page__swiper-pagination>.swiper-pagination-bullet:nth-child(2) {
-  background: url(../img/sliders/12/pag/02.png) center/cover no-repeat
-}
-.main-page__slider--1 .main-page__swiper-pagination>.swiper-pagination-bullet:nth-child(3) {
-  background: url(../img/sliders/01/pag/03.png) center/cover no-repeat
-}
-.main-page__slider--2 .main-page__swiper-pagination>.swiper-pagination-bullet:nth-child(3) {
-  background: url(../img/sliders/02/pag/03.png) center/cover no-repeat
-}
-.main-page__slider--3 .main-page__swiper-pagination>.swiper-pagination-bullet:nth-child(3) {
-  background: url(../img/sliders/03/pag/03.png) center/cover no-repeat
-}
-.main-page__slider--4 .main-page__swiper-pagination>.swiper-pagination-bullet:nth-child(3) {
-  background: url(../img/sliders/04/pag/03.png) center/cover no-repeat
-}
-.main-page__slider--5 .main-page__swiper-pagination>.swiper-pagination-bullet:nth-child(3) {
-  background: url(../img/sliders/05/pag/03.png) center/cover no-repeat
-}
-.main-page__slider--6 .main-page__swiper-pagination>.swiper-pagination-bullet:nth-child(3) {
-  background: url(../img/sliders/06/pag/03.png) center/cover no-repeat
-}
-.main-page__slider--8 .main-page__swiper-pagination>.swiper-pagination-bullet:nth-child(3) {
-  background: url(../img/sliders/08/pag/03.png) center/cover no-repeat
-}
-.main-page__slider--9 .main-page__swiper-pagination>.swiper-pagination-bullet:nth-child(3) {
-  background: url(../img/sliders/09/pag/03.png) center/cover no-repeat
-}
-.main-page__slider--10 .main-page__swiper-pagination>.swiper-pagination-bullet:nth-child(3) {
-  background: url(../img/sliders/10/pag/03.png) center/cover no-repeat
-}
-.main-page__slider--11 .main-page__swiper-pagination>.swiper-pagination-bullet:nth-child(3) {
-  background: url(../img/sliders/11/pag/03.png) center/cover no-repeat
-}
-.main-page__slider--12 .main-page__swiper-pagination>.swiper-pagination-bullet:nth-child(3) {
-  background: url(../img/sliders/12/pag/03.png) center/cover no-repeat
-}
-.main-page__slider--1 .main-page__swiper-pagination>.swiper-pagination-bullet:nth-child(4) {
-  background: url(../img/sliders/01/pag/04.png) center/cover no-repeat
-}
-.main-page__slider--2 .main-page__swiper-pagination>.swiper-pagination-bullet:nth-child(4) {
-  display: none;
-  background: url(../img/sliders/02/pag/04.png) center/cover no-repeat
-}
-.main-page__slider--3 .main-page__swiper-pagination>.swiper-pagination-bullet:nth-child(4) {
-  background: url(../img/sliders/03/pag/04.png) center/cover no-repeat
-}
-.main-page__slider--4 .main-page__swiper-pagination>.swiper-pagination-bullet:nth-child(4) {
-  background: url(../img/sliders/04/pag/04.png) center/cover no-repeat
-}
-.main-page__slider--5 .main-page__swiper-pagination>.swiper-pagination-bullet:nth-child(4) {
-  background: url(../img/sliders/05/pag/04.png) center/cover no-repeat
-}
-.main-page__slider--6 .main-page__swiper-pagination>.swiper-pagination-bullet:nth-child(4) {
-  background: url(../img/sliders/06/pag/04.png) center/cover no-repeat
-}
-.main-page__slider--9 .main-page__swiper-pagination>.swiper-pagination-bullet:nth-child(4) {
-  background: url(../img/sliders/09/pag/04.png) center/cover no-repeat
-}
-.main-page__slider--10 .main-page__swiper-pagination>.swiper-pagination-bullet:nth-child(4) {
-  background: url(../img/sliders/10/pag/04.png) center/cover no-repeat
-}
-.main-page__slider--11 .main-page__swiper-pagination>.swiper-pagination-bullet:nth-child(4) {
-  background: url(../img/sliders/11/pag/04.png) center/cover no-repeat
-}
-.main-page__slider--1 .main-page__swiper-pagination>.swiper-pagination-bullet:nth-child(5) {
-  display: none;
-  background: url(../img/sliders/01/pag/05.png) center/cover no-repeat
-}
-.main-page__slider--2 .main-page__swiper-pagination>.swiper-pagination-bullet:nth-child(5) {
-  display: none;
-  background: url(../img/sliders/02/pag/05.png) center/cover no-repeat
-}
-.main-page__slider--3 .main-page__swiper-pagination>.swiper-pagination-bullet:nth-child(5) {
-  display: none;
-  background: url(../img/sliders/03/pag/05.png) center/cover no-repeat
-}
-.main-page__slider--4 .main-page__swiper-pagination>.swiper-pagination-bullet:nth-child(5) {
-  background: url(../img/sliders/04/pag/05.png) center/cover no-repeat
-}
-.main-page__slider--5 .main-page__swiper-pagination>.swiper-pagination-bullet:nth-child(5) {
-  background: url(../img/sliders/05/pag/05.png) center/cover no-repeat
-}
-.main-page__slider--6 .main-page__swiper-pagination>.swiper-pagination-bullet:nth-child(5) {
-  background: url(../img/sliders/06/pag/05.png) center/cover no-repeat
-}
-.main-page__slider--9 .main-page__swiper-pagination>.swiper-pagination-bullet:nth-child(5) {
-  background: url(../img/sliders/09/pag/05.png) center/cover no-repeat
-}
-.main-page__slider--10 .main-page__swiper-pagination>.swiper-pagination-bullet:nth-child(5) {
-  background: url(../img/sliders/10/pag/05.png) center/cover no-repeat
-}
-.main-page__slider--11 .main-page__swiper-pagination>.swiper-pagination-bullet:nth-child(5) {
-  background: url(../img/sliders/11/pag/05.png) center/cover no-repeat
-}
-.main-page__slider--1 .main-page__swiper-pagination>.swiper-pagination-bullet:nth-child(6) {
-  background: url(../img/sliders/01/pag/06.png) center/cover no-repeat
-}
-.main-page__slider--2 .main-page__swiper-pagination>.swiper-pagination-bullet:nth-child(6) {
-  background: url(../img/sliders/02/pag/06.png) center/cover no-repeat
-}
-.main-page__slider--3 .main-page__swiper-pagination>.swiper-pagination-bullet:nth-child(6) {
-  background: url(../img/sliders/03/pag/06.png) center/cover no-repeat
-}
-.main-page__slider--4 .main-page__swiper-pagination>.swiper-pagination-bullet:nth-child(6) {
-  background: url(../img/sliders/04/pag/06.png) center/cover no-repeat
-}
-.main-page__slider--5 .main-page__swiper-pagination>.swiper-pagination-bullet:nth-child(6) {
-  background: url(../img/sliders/05/pag/06.png) center/cover no-repeat
-}
-.main-page__slider--6 .main-page__swiper-pagination>.swiper-pagination-bullet:nth-child(6) {
-  background: url(../img/sliders/06/pag/06.png) center/cover no-repeat
-}
-.main-page__slider--11 .main-page__swiper-pagination>.swiper-pagination-bullet:nth-child(6) {
-  background: url(../img/sliders/11/pag/06.png) center/cover no-repeat
-}
-.main-page__slider--11 .main-page__swiper-pagination>.swiper-pagination-bullet:nth-child(7) {
-  background: url(../img/sliders/11/pag/07.png) center/cover no-repeat
+  border: .1875rem solid #fff;
+  background: rgba(255, 255, 255, .2)
 }
 .main-page__swiper-pagination>.swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background: #fff;
   box-shadow: 0 0 14.4px 0 #fff
 }
 .main-page__swiper-sound {
@@ -1809,21 +1603,6 @@ body.show-main .main-page-wrapper {
   .footer__logo {
     font-size: 1rem
   }
-  .footer__osnovo span {
-    font-size: 1rem
-  }
-  .footer__osnovo svg:not(:last-child) {
-    width: 1.5rem
-  }
-  .footer__osnovo svg:not(:last-child) {
-    height: 1.5625rem
-  }
-  .footer__osnovo svg:last-child {
-    width: 3.75rem
-  }
-  .footer__osnovo svg:last-child {
-    height: .6875rem
-  }
   .music__body {
     width: 59.125rem
   }
@@ -2289,26 +2068,22 @@ body.show-main .main-page-wrapper {
   }
   .footer__container {
     padding-left: .9375rem;
-    flex-direction: column;
-    row-gap: .375rem
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    row-gap: 0;
+    -webkit-column-gap: .375rem;
+    -moz-column-gap: .375rem;
+    column-gap: .375rem
   }
   .footer__text {
     font-size: 1rem;
-    text-transform: uppercase
+    letter-spacing: .02em;
+    white-space: normal
   }
   .footer__middle {
-    display: none
-  }
-  .footer__osnovo span {
-    font-size: 1rem;
-    text-transform: uppercase;
-    margin-right: .25rem
-  }
-  .footer__osnovo svg:not(:last-child) {
-    width: 1.5rem
-  }
-  .footer__osnovo svg:last-child {
-    width: 3.75rem
+    display: flex
   }
   .music__body {
     width: calc(100% - 1.875rem);
@@ -2730,21 +2505,6 @@ body.show-main .main-page-wrapper {
   .footer__logo {
     font-size: clamp(.75rem ,.583340567rem + .3472161942vw ,1rem)
   }
-  .footer__osnovo span {
-    font-size: clamp(.75rem ,.583340567rem + .3472161942vw ,1rem)
-  }
-  .footer__osnovo svg:not(:last-child) {
-    width: clamp(1.125rem ,.8750108505rem + .5208242912vw ,1.5rem)
-  }
-  .footer__osnovo svg:not(:last-child) {
-    height: clamp(1.1875rem ,.9375108505rem + .5208242912vw ,1.5625rem)
-  }
-  .footer__osnovo svg:last-child {
-    width: clamp(2.8125rem ,2.1875271263rem + 1.3020607281vw ,3.75rem)
-  }
-  .footer__osnovo svg:last-child {
-    height: clamp(.515625rem ,.4010466398rem + .2387111335vw ,.6875rem)
-  }
   .music__body {
     width: clamp(46.125rem ,37.4587094842rem + 18.0552420965vw ,59.125rem)
   }
@@ -2955,12 +2715,6 @@ body.show-main .main-page-wrapper {
   }
   .footer__logo:hover {
     color: #fc92cc
-  }
-  .footer__osnovo:hover span {
-    color: #fc92cc
-  }
-  .footer__osnovo:hover svg path {
-    fill: #fc92cc
   }
   .music__button:hover img {
     -webkit-transform: scale(.95);

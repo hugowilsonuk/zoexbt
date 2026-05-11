@@ -4441,51 +4441,91 @@
     const slidersInfo = [ {
         id: 1,
         name: "$MYRO",
-        howMany: "4 ARTS"
+        howMany: "11 ARTS"
     }, {
         id: 2,
-        name: "FOUR",
+        name: "$FOUR",
         howMany: "3 ARTS"
     }, {
         id: 3,
-        name: "$Axol",
-        howMany: "4 ARTS"
+        name: "$AXOL",
+        howMany: "12 ARTS"
     }, {
         id: 4,
-        name: "$LoFi",
-        howMany: "4 ARTS"
+        name: "$LOFI",
+        howMany: "12 ARTS"
     }, {
         id: 5,
-        name: "KIMBA",
+        name: "$KIMBA",
         howMany: "3 ARTS"
     }, {
         id: 6,
-        name: "TRUMP",
-        howMany: "3 ARTS"
+        name: "$METROPOLIS",
+        howMany: "4 ARTS"
     }, {
         id: 7,
-        name: "MBAPEPE",
-        howMany: "2 ARTS"
+        name: "$MUSKIT",
+        howMany: "5 ARTS"
     }, {
         id: 8,
+        name: "$DINO",
+        howMany: "5 ARTS"
+    }, {
+        id: 9,
+        name: "$TRUMP",
+        howMany: "6 ARTS"
+    }, {
+        id: 10,
+        name: "$MBAPEPE",
+        howMany: "2 ARTS"
+    }, {
+        id: 11,
         name: "$LUCKY",
         howMany: "3 ARTS"
     }, {
-        id: 9,
-        name: "DUCK",
+        id: 12,
+        name: "$DUCK",
         howMany: "5 ARTS"
     }, {
-        id: 10,
-        name: "$Axol",
-        howMany: "5 ANIMATIONS"
+        id: 13,
+        name: "$DUCKY",
+        howMany: "4 ARTS"
     }, {
-        id: 11,
-        name: "$LoFi",
-        howMany: "7 ANIMATIONS"
+        id: 14,
+        name: "$EVAN",
+        howMany: "5 ARTS"
     }, {
-        id: 12,
-        name: "Nyan",
+        id: 15,
+        name: "$ORBIT",
+        howMany: "6 ARTS"
+    }, {
+        id: 16,
+        name: "$AXOL",
+        howMany: "9 ANIMATIONS"
+    }, {
+        id: 17,
+        name: "$LOFI",
+        howMany: "16 ANIMATIONS"
+    }, {
+        id: 18,
+        name: "$METROPOLIS",
+        howMany: "8 ANIMATIONS"
+    }, {
+        id: 19,
+        name: "$MUSKIT",
         howMany: "3 ANIMATIONS"
+    }, {
+        id: 20,
+        name: "$EVAN",
+        howMany: "2 ANIMATIONS"
+    }, {
+        id: 21,
+        name: "$NYAN",
+        howMany: "6 ANIMATIONS"
+    }, {
+        id: 22,
+        name: "$SUICY",
+        howMany: "2 ANIMATIONS"
     } ];
     let activeSliderNumber = 1;
     const projectsButtons = document.querySelectorAll(".tabs__folder");
@@ -4507,7 +4547,8 @@
         playVideo();
     }), 1e3);
     function updateInfoBar() {
-        const num = `0${slidersInfo[activeSliderNumber - 1].id}.`;
+        const sid = slidersInfo[activeSliderNumber - 1].id;
+        const num = sid < 10 ? `0${sid}.` : `${sid}.`;
         const name = slidersInfo[activeSliderNumber - 1].name;
         const howMany = slidersInfo[activeSliderNumber - 1].howMany;
         navigNumBox.innerText = num;
@@ -4523,7 +4564,7 @@
                 el.classList.remove("active");
                 if (ind === activeSliderNumber - 1) el.classList.add("active");
             }));
-            if (currentNumber === 10) {
+            if (currentNumber === 16) {
                 const tabsBodies = document.querySelectorAll(".tabs__body");
                 tabsBodies.forEach(((tabsBody, index) => {
                     if (index === 0) tabsBody.removeAttribute("hidden"); else tabsBody.setAttribute("hidden", true);
@@ -4536,13 +4577,13 @@
     }));
     nextFolderButton.addEventListener("click", (() => {
         const currentNumber = activeSliderNumber;
-        if (currentNumber < 12) {
+        if (currentNumber < 22) {
             activeSliderNumber += 1;
             allSliders.forEach(((el, ind) => {
                 el.classList.remove("active");
                 if (ind === activeSliderNumber - 1) el.classList.add("active");
             }));
-            if (currentNumber === 9) animationButton.click();
+            if (currentNumber === 15) animationButton.click();
             updateInfoBar();
         }
     }));
@@ -4560,9 +4601,9 @@
     animationButton.addEventListener("click", (() => {
         allSliders.forEach(((slider, ind) => {
             slider.classList.remove("active");
-            if (ind === 9) {
+            if (ind === 15) {
                 slider.classList.add("active");
-                activeSliderNumber = 10;
+                activeSliderNumber = 16;
             }
             if (slider.swiper) slider.swiper.slideTo(0);
             updateInfoBar();
