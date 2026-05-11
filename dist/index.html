@@ -39,6 +39,12 @@
 			width: 60vw;
 			align-items: flex-end;
 			transform: translateY(-10%);
+			opacity: 0;
+			transition: opacity .35s ease;
+		}
+
+		.preloader.preloader--ready .preloader__body {
+			opacity: 1;
 		}
 
 		.preloader__zoe {
@@ -172,6 +178,50 @@
 				</div>
 			</div>
 		</div>
+		<script>
+			(function () {
+				var PL_MAX_WAIT_MS = 12000;
+				function loadUrl(url) {
+					return new Promise(function (resolve) {
+						var img = new Image();
+						img.onload = function () {
+							if (img.decode) {
+								img.decode().then(resolve).catch(resolve);
+							} else {
+								resolve();
+							}
+						};
+						img.onerror = resolve;
+						img.src = url;
+					});
+				}
+				var urls = [
+					"img/preloader/bg.jpg",
+					"img/filter.png",
+					"img/preloader/ZOE.png",
+					"img/preloader/01.png",
+					"img/preloader/02.png",
+					"img/preloader/03.png",
+					"img/preloader/04.png",
+					"img/preloader/05.png",
+					"img/preloader/06.png",
+					"img/preloader/XBT.png"
+				];
+				var done = false;
+				function reveal() {
+					if (done) return;
+					done = true;
+					var el = document.querySelector(".preloader");
+					if (el) el.classList.add("preloader--ready");
+				}
+				Promise.race([
+					Promise.all(urls.map(loadUrl)),
+					new Promise(function (resolve) {
+						setTimeout(resolve, PL_MAX_WAIT_MS);
+					})
+				]).then(reveal);
+			})();
+		</script>
 		<div class="music">
 			<div class="music__bg"></div>
 			<div class="music__body">
